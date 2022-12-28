@@ -1,0 +1,49 @@
+//
+//  BookmarkTabView.swift
+//  NewsApp
+//
+//  Created by Duy Khang Nguyen Truong on 12/22/22.
+//
+
+import SwiftUI
+
+struct BookmarkTabView: View {
+    @EnvironmentObject var articleBookmarkVM : ArticleBookmarkViewModel
+    @State var searchText: String = ""
+    var body: some View {
+        let articles = self.articles
+        NavigationView {
+            ArticleListView(articles: articles)
+                .overlay(overlayView(isEmpty: articles.isEmpty))
+                .navigationTitle("Saved bookmarks")
+            
+        }
+        .searchable(text: $searchText)
+    }
+    
+    private var articles: [Article] {
+        if searchText.isEmpty {
+            return articleBookmarkVM.bookmarks
+        }
+        return articleBookmarkVM.bookmarks
+            .filter {
+                $0.title.lowercased().contains(searchText.lowercased()) ||
+                $0.description.lowercased().contains(searchText.lowercased())
+            }
+    }
+    
+    @ViewBuilder
+    func overlayView(isEmpty: Bool) ->some View {
+        if isEmpty {
+            EmptyPlaceholderView(text: "No saved bookmarks", image: Image(systemName: "bookmark"))
+        }
+    }
+}
+
+struct BookmarkTabView_Previews: PreviewProvider {
+    @StateObject static var articleBookmarkVM = ArticleBookmarkViewModel.shared
+    static var previews: some View {
+        BookmarkTabView()
+            .environmentObject(articleBookmarkVM)
+    }
+}
