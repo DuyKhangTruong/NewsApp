@@ -26,7 +26,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/DuyKhangTruong/NewsApp">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -90,7 +90,7 @@ To get a local copy up and running follow these simple example steps.
 1. Get a free API Key at [https://newsapi.org/](https://newsapi.org/)
 2. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone git@github.com:DuyKhangTruong/NewsApp.git
    ```
 3. Enter your API in `API/NewsAPI`
    ```js
