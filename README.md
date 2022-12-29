@@ -71,4 +71,5 @@
 ## Roadmap
 
 - [ ] Implement database: Realm, or MongoDB
+- [ ] Support cross-platform: iPadOS, MacOS
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
